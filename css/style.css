@@ -26,13 +26,27 @@ ol {
 
 a {
     text-decoration: none;
-    color: #fff;
+    /* color: #fff; */
     display: block;
+}
+
+.color-white {
+    color: #fff;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 body {
     color: #fff;
     font-family: 'DeviewKR', 'DeviewEB', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    cursor: none;
+    /* transform: rotate(0.03deg); */
 }
 
 .container {
@@ -43,6 +57,7 @@ body {
 .page1,
 .page2 {
     height: 100vh;
+    padding-left: 100px;
 }
 
 .page1 {
@@ -52,12 +67,30 @@ body {
 
 .header {
     height: 100px;
+    width: 100%;
     line-height: 100px;
     display: flex;
-    align-items: center;
     position: fixed;
     left: 0;
     right: 0;
+    z-index: 99999;
+    gap: 80px;
+    justify-content: flex-start;
+    padding-left: 72px;
+    background: rgba(255, 255, 255, 0);
+    /* transition:all 0.5s; */
+}
+
+.header.header_color_change {
+    background: rgba(255, 255, 255, 1);
+}
+
+.header.header_color_change2 {
+    background: rgba(0, 0, 0, 1);
+}
+
+.header.header_color_change a {
+    color: #333;
 }
 
 .h1 {
@@ -78,12 +111,16 @@ body {
 }
 
 .page2 {
-    margin-bottom: 50px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    padding-left: 160px;
+    background-color: #fff;
 }
 
 .page2_p {
     font-size: 180px;
     font-weight: bold;
+    letter-spacing: -16px;
 }
 
 .color_p {
@@ -97,7 +134,15 @@ body {
 .page3 {
     font-size: 40px;
     font-weight: bold;
-    margin-bottom: 400px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    background-color: #fff;
+    padding-left: 160px;
+    letter-spacing: -5px;
+}
+
+.page3 p:first-child {
+    margin-bottom: 30px;
 }
 
 .page4,
@@ -109,31 +154,28 @@ body {
 .h2 {
     text-align: center;
     font-size: 80px;
-    margin-bottom: 130px;
+    padding-bottom: 130px;
     padding-top: 100px;
 }
 
 .portfolio_wrap {
     display: flex;
     gap: 30px;
-    flex-wrap: nowrap;
-    animation: moveRight 10s linear infinite;
-    /* overflow: hidden; */
+    flex-wrap: wrap;
+    justify-content: center;
+
 }
 
-  @keyframes moveRight {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(-70%);
-    }
-  }
+.portfolio_wrap a:hover {
+    transform: translateY(-10px);
+    transition: all 0.3s;
+}
 
 .portfolio {
     width: 20vw;
     height: 330px;
     padding: 30px;
+    border-radius: 5px;
 }
 
 .portfolio1 {
@@ -193,50 +235,50 @@ body {
 
 .profile_img,
 .profile_text {
-    flex:1;
+    flex: 1;
     width: 50%;
 }
 
-.profile_img{
+.profile_img {
     background: #fff;
     height: 50vh;
-    color:#333;
+    color: #333;
 }
 
-.profile_text{
-    text-align:left;
+.profile_text {
+    text-align: left;
     font-size: 22px;
 }
 
-.name{
+.name {
     font-size: 36px;
     margin-bottom: 60px;
 }
 
-.profile_text_div{
+.profile_text_div {
     display: flex;
     font-weight: bold;
 }
 
-.profile_text_p{
+.profile_text_p {
     margin-bottom: 20px;
 }
 
-.text_left{
+.text_left {
     width: 100px;
 }
 
 .page7 {
-    height: 70vh;
     background: #0f1211;
 }
 
 .page7_h3 {
-    width: 100vw;
     margin: 0 auto;
     text-align: center;
     font-size: 220px;
-    margin-bottom: 296px;
+    padding-bottom: 200px;
+
+
 }
 
 .address {
@@ -246,5 +288,79 @@ body {
 }
 
 .email {
-    display: inline;
+    display: block;
+}
+
+.page7_address {
+    padding-bottom: 30px;
+}
+
+.circle {
+    width: 5em;
+    height: 5em;
+    background-color: #fff;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    will-change: transform;
+    pointer-events: none;
+}
+
+.page2 {
+    /* transform-style: preserve-3d; */
+    perspective: 1000px;
+}
+
+.letter,
+.letter2,
+.letter3,
+.letter4 {
+    /* transform: rotateX(-90deg);
+    transition:all 0.25s; */
+    transform: rotateX(45deg);
+    transition: all 1s;
+    /* transform-origin: top right; */
+    opacity: 0;
+    /* background: skyblue; */
+}
+
+.opc0 {
+    opacity: 0;
+}
+
+.opc {
+    opacity: 1;
+    transform: rotateX(0deg);
+}
+
+.animation {
+    animation-name: 글자올라오기;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes 글자올라오기 {
+    0% {
+        transform: translateY(50px);
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.page7_h3 span{
+    display: inline-block;
+    opacity: 0;
+    min-width: 1.4vw;
+    transform: translateY(70px);
+    transition: all 0.3s ease-in-out;
+}
+
+.page7_h3 span.active{
+    opacity: 1;
+    transform: translateY(0px);
 }
